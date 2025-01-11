@@ -1,6 +1,6 @@
 <launch>
 
-    <param name="robot_description" textfile="$(find learn_description)/urdf/robot.urdf" />
+    <param name="robot_description" command="$(find xacro)/xacro $(find learn_description)/urdf/robot.xacro" />
 
     <node pkg="rviz" type="rviz" name="rviz" args="-d $(find learn_description)/config/rviz/config.rviz" />
 

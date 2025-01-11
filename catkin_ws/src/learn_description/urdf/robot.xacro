@@ -1,4 +1,4 @@
-<robot name="robot">
+<robot name="robot" xmlns:xacro="http://wiki.ros.org/xacro">
 
     <link name="base_footprint">
         <visual>
@@ -18,7 +18,7 @@
         <inertial>
             <origin xyz="0 0 0"/>
             <mass value="6" />
-            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+            <inertia ixx="0.185" ixy="0" ixz="0" iyy="0.2" iyz="0" izz="0.025" />
         </inertial>
         <collision>
             <geometry>
@@ -64,7 +64,7 @@
         <inertial>
             <origin xyz="0 0 0"/>
             <mass value="2" />
-            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+            <inertia ixx="3.8e-3" ixy="0" ixz="0" iyy="3.8e-3" iyz="0" izz="6.4e-3" />
         </inertial>
         <collision>
             <geometry>
@@ -91,7 +91,7 @@
         <inertial>
             <origin xyz="0 0 0"/>
             <mass value="2" />
-            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+            <inertia ixx="3.8e-3" ixy="0" ixz="0" iyy="3.8e-3" iyz="0" izz="6.4e-3" />
         </inertial>
         <collision>
             <geometry>
@@ -119,7 +119,7 @@
         <inertial>
             <origin xyz="0 0 0"/>
             <mass value="2" />
-            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+            <inertia ixx="3.8e-3" ixy="0" ixz="0" iyy="3.8e-3" iyz="0" izz="6.4e-3" />
         </inertial>
         <collision>
             <geometry>
@@ -146,7 +146,7 @@
         <inertial>
             <origin xyz="0 0 0"/>
             <mass value="2" />
-            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+            <inertia ixx="3.8e-3" ixy="0" ixz="0" iyy="3.8e-3" iyz="0" izz="6.4e-3" />
         </inertial>
         <collision>
             <geometry>
@@ -162,5 +162,30 @@
         <origin xyz="-0.18 -0.13 -0.05" rpy="0 0 0" />
         <axis xyz="0 1 0" />
     </joint>
+
+    <xacro:macro name="joint_trans" params="joint_name">
+        <!-- Transmission is important to link the joints and the controller -->
+        <transmission name="${joint_name}_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${joint_name}_joint">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${joint_name}_motor">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+    <xacro:joint_trans joint_name="left_front_wheel" />
+    <xacro:joint_trans joint_name="left_back_wheel" />
+    <xacro:joint_trans joint_name="right_front_wheel" />
+    <xacro:joint_trans joint_name="right_back_wheel" />
+
+    <gazebo>
+        <plugin name="ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
 
 </robot>
