@@ -6,6 +6,7 @@
           output="screen" args="
         controller/diff_drive_controller
         controller/joint_state_controller
-  "/>
+  ">
+    </node>
 
 </launch>
