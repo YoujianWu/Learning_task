@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <gazebo>
+        <plugin name="ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+
+    <xacro:include filename="$(find my_robot)/urdf/wheel.urdf.xacro"/>
+
+    <xacro:property name="wheel_x_offset" value="0.6"/>
+    <xacro:property name="wheel_y_offset" value="0.5"/>
+    <xacro:property name="wheel_z_offset" value="-0.3"/>
+
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="2.0 1.0 0.5"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="2.0 1.0 0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <inertia ixx="1.042" ixy="0.0" ixz="0.0" iyy="3.542" iyz="0.0" izz="4.167"/>
+        </inertial>
+    </link>
+
+
+    <xacro:wheel prefix="front_left" radius="0.2" wheel_x_offset="${-wheel_x_offset}" wheel_y_offset="${wheel_y_offset}"
+                             wheel_z_offset="${wheel_z_offset}"/>
+    <xacro:wheel prefix="front_right" radius="0.2" wheel_x_offset="${-wheel_x_offset}" wheel_y_offset="${-wheel_y_offset}"
+                             wheel_z_offset="${wheel_z_offset}"/>
+    <xacro:wheel prefix="back_left" radius="0.2" wheel_x_offset="${wheel_x_offset}" wheel_y_offset="${wheel_y_offset}"
+                             wheel_z_offset="${wheel_z_offset}"/>
+    <xacro:wheel prefix="back_right" radius="0.2" wheel_x_offset="${wheel_x_offset}" wheel_y_offset="${-wheel_y_offset}"
+                             wheel_z_offset="${wheel_z_offset}"/>
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <xacro:color prefix="front_left"/>
+    <xacro:color prefix="front_right"/>
+    <xacro:color prefix="back_left"/>
+    <xacro:color prefix="back_right"/>
+
+    <xacro:wheel_transmission prefix="front_left"/>
+    <xacro:wheel_transmission prefix="front_right"/>
+    <xacro:wheel_transmission prefix="back_left"/>
+    <xacro:wheel_transmission prefix="back_right"/>
+
+</robot>

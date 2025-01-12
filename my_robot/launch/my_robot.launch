@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+	<param name="robot_description" command="$(find xacro)/xacro $(find my_robot)/urdf/robot.urdf.xacro"/>
+
+    <arg name="paused" default="true"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    	<arg name="paused" value="$(arg paused)"/>
+        <arg name="world_name" value="$(find rm_gazebo)/worlds/empty.world"/>
+    </include>
+
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" clear_params="true"
+          args="-z 0.5 -param robot_description -urdf -model my_robot" output="screen"/>
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    <rosparam file="$(find my_robot)/config/controller.yaml" command="load"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" args="
+        controller/diff_drive_controller
+        controller/joint_state_controller">
+    </node>
+
+</launch>
