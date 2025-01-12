@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="mbot">
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.1"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 .8 1"/>
+            </material>
+        </visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <collision>
+             <geometry>
+                   <cylinder length="0.1" radius="0.25"/>
+              </geometry>
+             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+    </link>
+
+    <link name="car_frame">
+        <visual>
+            <geometry>
+                <box size="1.0 0.5 0.5"/>
+            </geometry>
+             <material name="red">
+                 <color rgba="1 0 0 1"/>
+             </material>
+        </visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <collision>
+             <geometry>
+                     <box size="1.0 0.5 0.5"/>
+             </geometry>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </collision>
+        <inertial>
+              <origin xyz="0 0 0" />
+              <mass value="12" />
+              <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+    </link>
+
+    <link name="wheel1">
+        <visual>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+
+            <material name="blue">
+                 <color rgba="0 0 .8 1"/>
+            </material>
+        </visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+         <collision>
+                 <geometry>
+                       <cylinder length="0.1" radius="0.25"/>
+                  </geometry>
+                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+         </collision>
+         <inertial>
+               <origin xyz="0 0 0" />
+               <mass value="1" />
+               <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+         </inertial>
+    </link>
+
+    <link name="wheel2">
+        <visual>
+           <geometry>
+              <cylinder length="0.1" radius="0.25"/>
+           </geometry>
+            <material name="blue">
+                  <color rgba="0 0 .8 1"/>
+            </material>
+        </visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <collision>
+             <geometry>
+                   <cylinder length="0.1" radius="0.25"/>
+              </geometry>
+             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+    </link>
+
+    <link name="wheel3">
+        <visual>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+             <material name="blue">
+                  <color rgba="0 0 .8 1"/>
+             </material>
+        </visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <collision>
+             <geometry>
+                   <cylinder length="0.1" radius="0.25"/>
+              </geometry>
+             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+    </link>
+
+    <link name="wheel4">
+        <visual>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+             <material name="blue">
+                  <color rgba="0 0 .8 1"/>
+              </material>
+        </visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <collision>
+             <geometry>
+                   <cylinder length="0.1" radius="0.25"/>
+              </geometry>
+             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+    </link>
+
+    <joint name="frame2base_link" type="fixed">
+        <parent link="base_link"/>
+        <child link="car_frame"/>
+        <origin xyz="0 0 0.25" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="wheelbl2frame" type="continuous">
+        <parent link="car_frame"/>
+        <child link="wheel1"/>
+        <origin xyz="0.5 -0.3 -0.25" rpy="1.57 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="wheelbr2frame" type="continuous">
+        <parent link="car_frame"/>
+        <child link="wheel2"/>
+        <origin xyz="0.5 0.3 -0.25" rpy="1.57 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="wheelfl2frame" type="continuous">
+        <parent link="car_frame"/>
+        <child link="wheel3"/>
+        <origin xyz="-0.5 -0.3 -0.25" rpy="1.57 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="wheelfr2frame" type="continuous">
+        <parent link="car_frame"/>
+        <child link="wheel4"/>
+        <origin xyz="-0.5 0.3 -0.25" rpy="1.57 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <transmission name="bl_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="bl_motors">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1.0</mechanicalReduction>
+        </actuator>
+        <joint name="wheelbl2frame">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+
+    <transmission name="br_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="br_motors">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1.0</mechanicalReduction>
+        </actuator>
+        <joint name="wheelbr2frame">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+
+    <transmission name="fl_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="fl_motors">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1.0</mechanicalReduction>
+        </actuator>
+        <joint name="wheelfl2frame">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+
+    <transmission name="fr_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="fr_motors">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1.0</mechanicalReduction>
+        </actuator>
+        <joint name="wheelfr2frame">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+
+    <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+    </gazebo>
+</robot>
