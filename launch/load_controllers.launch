@@ -1,0 +1,18 @@
+<launch>
+    <param name="robot_description" textfile="$(find learning_task)/urdf/new_car.urdf.xacro"/>
+    <param name="robot_description" command="$(find xacro)/xacro $(find learning_task)/urdf/new_car.urdf.xacro"/>
+    <rosparam file="$(find learning_task)/config/controller_config.yaml" command="load"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find gazebo_ros)/worlds/empty.world"/>
+    </include>
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" args="
+        controller/diff_drive_controller
+        controller/joint_state_controller
+  "/>
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find learning_task)/rviz/launch.rviz" required="true"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model car -param robot_description -x 0 -y 0 -z 0" />
+</launch>
