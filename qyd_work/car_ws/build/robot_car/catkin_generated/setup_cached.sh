@@ -8,6 +8,9 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/qyd/Learning_task/qyd_work/car_ws/devel/.private/robot_car:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/qyd/Learning_task/qyd_work/car_ws/devel/.private/robot_car/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/qyd/Learning_task/qyd_work/car_ws/devel/.private/robot_car/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/qyd/Learning_task/qyd_work/car_ws/build/robot_car'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/qyd/Learning_task/qyd_work/car_ws/devel/.private/robot_car/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/qyd/Learning_task/qyd_work/car_ws/src/robot_car:$ROS_PACKAGE_PATH"
+export ROS_PACKAGE_PATH="/home/qyd/Learning_task/qyd_work/car_ws/src/robot_car
+:/home/qyd/Learning_task/qyd_work/car_ws/src/robot_car:$ROS_PACKAGE_PATH"
