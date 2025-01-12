@@ -41,14 +41,6 @@ install(
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-add_executable(robot_controller src/robot_controller.cpp)
-target_link_libraries(robot_controller ${catkin_LIBRARIES})
-
-
-install(TARGETS robot_controller
-        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
 install(DIRECTORY launch rviz urdf
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )

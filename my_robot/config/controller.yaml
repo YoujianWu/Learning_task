@@ -6,6 +6,7 @@ controller:
     publish_rate: 50
     pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 0.03]
     twist_covariance_diagonal: [0.001, 0.001, 0.001, 1000000.0, 1000000.0, 0.03]
+
     cmd_vel_timeout: 0.25
     enable_odom_tf: true
 

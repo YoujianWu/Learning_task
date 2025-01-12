@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+
 <robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <gazebo>
@@ -46,6 +47,7 @@
     <gazebo reference="base_link">
         <material>Gazebo/Blue</material>
     </gazebo>
+
     <xacro:color prefix="front_left"/>
     <xacro:color prefix="front_right"/>
     <xacro:color prefix="back_left"/>

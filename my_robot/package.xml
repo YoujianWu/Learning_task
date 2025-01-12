@@ -7,7 +7,6 @@
     <license>BSD</license>
     <author email="2874257768@qq.com">Zhuolin Liu</author>
 
-    <!-- buildtool_depend: dependencies of the build process -->
     <buildtool_depend>catkin</buildtool_depend>
     <build_depend>urdf</build_depend>
     <build_depend>roslint</build_depend>
