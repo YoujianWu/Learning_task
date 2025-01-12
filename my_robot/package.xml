@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>my_robot</name>
+    <version>0.1.9</version>
+    <description>First urdf robot</description>
+    <maintainer email="2874257768@qq.com">Zhuolin Liu</maintainer>
+    <license>BSD</license>
+    <author email="2874257768@qq.com">Zhuolin Liu</author>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <build_depend>urdf</build_depend>
+    <build_depend>roslint</build_depend>
+    <build_depend>xacro</build_depend>
+    <build_depend>roscpp</build_depend>
+    <build_depend>std_msgs</build_depend>
+    <build_depend>geometry_msgs</build_depend>
+    <build_depend>controller_manager</build_depend>
+
+    <exec_depend>rviz</exec_depend>
+    <exec_depend>roscpp</exec_depend>
+    <exec_depend>std_msgs</exec_depend>
+    <exec_depend>geometry_msgs</exec_depend>
+    <exec_depend>controller_manager</exec_depend>
+    <exec_depend>joint_state_publisher</exec_depend>
+    <exec_depend>robot_state_publisher</exec_depend>
+    <exec_depend>gazebo_ros</exec_depend>
+    <exec_depend>urdf</exec_depend>
+    <exec_depend>xacro</exec_depend>
+
+</package>
