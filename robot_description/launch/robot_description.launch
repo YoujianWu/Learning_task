@@ -1,0 +1,25 @@
+<launch>
+
+    <rosparam file="$(find robot_description)/config/controllers.yaml" command="load"/>
+    <param name="robot_description"
+           command="$(find xacro)/xacro $(find robot_description)/urdf/car.urdf.xacro"/>
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find robot_description)/config/car.rviz"/>
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen"/>
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/>
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" args="
+        controllers/diff_drive_controller
+        controllers/joint_state_controller
+  ">
+
+    </node>
+    <remap from="/controllers/diff_drive_controller/cmd_vel" to="cmd_vel"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="paused" value="false"/>
+        <arg name="world_name" value="$(find rm_gazebo)/worlds/empty.world"/>
+    </include>
+
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model car"
+          output="screen"/>
+</launch>
