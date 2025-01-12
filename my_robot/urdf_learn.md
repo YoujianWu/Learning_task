@@ -10,7 +10,7 @@ Author:刘焯林
 
 使用create_pkg直接在工作空间里建立一个新的软件包，配置好cmakelist等文件即可，操作较为简单，就不进行赘述。
 
-![catkin_build](/home/eoeles/rm_ws/src/Learning_task/my_robot/picture/catkin_build.jpg)
+![catkin_build](picture/catkin_build.jpg)
 
 
 
@@ -18,7 +18,7 @@ Author:刘焯林
 
 在Clion中进行简单的git操作，commit信息符合规范，同时也可以通过clion进行commit信息的修改和commit操作的撤回删除。
 
-![git](/home/eoeles/rm_ws/src/Learning_task/my_robot/picture/git.jpg)
+![git](picture/git.jpg)
 
 
 
@@ -26,7 +26,7 @@ Author:刘焯林
 
 新建一个名为.gitignore的文件，将不需要commit的文件的名称写入即可。
 
-![gitignore](/home/eoeles/rm_ws/src/Learning_task/my_robot/picture/gitignore.jpg)
+![gitignore](picture/gitignore.jpg)
 
 
 
@@ -34,7 +34,7 @@ Author:刘焯林
 
 根据队内文档安装使用pre-commit，规范文件内容。
 
-![pre-commit](/home/eoeles/rm_ws/src/Learning_task/my_robot/picture/pre-commit.jpg)
+![pre-commit](picture/pre-commit.jpg)
 
 
 
@@ -42,7 +42,7 @@ Author:刘焯林
 
 如图所示，此命令可对urdf文件进行检查
 
-![check_urdf](/home/eoeles/rm_ws/src/Learning_task/my_robot/picture/check_urdf.jpg)
+![check_urdf](picture/check_urdf.jpg)
 
 但由于这主要针对的是.urdf后缀的文件，对于现在使用的.xacro文件，使用rosrun xacro xacro 命令效果更佳，如果出现语法错误则会进行提示。
 
@@ -62,7 +62,7 @@ Author:刘焯林
 
 可见各物体之间位置，碰撞箱，惯量矩阵均正确。
 
-![car](/home/eoeles/rm_ws/src/Learning_task/my_robot/picture/car.jpg)
+![car](picture/car.jpg)
 
 
 
@@ -70,7 +70,7 @@ Author:刘焯林
 
 完成小车拼接的同时，也为小车的各个部分进行上色，车体为蓝车轮为黑，rviz的Fixed Frame里选择base_link，能正确显示物体间的位置关系，大小和颜色。
 
-![rviz](/home/eoeles/rm_ws/src/Learning_task/my_robot/picture/rviz.jpg)
+![rviz](picture/rviz.jpg)
 
 ### 控制小车移动
 
@@ -90,7 +90,7 @@ Author:刘焯林
 
 linear.x部分可使其前进或后退，angular.z可以使其转向。
 
-![move](/home/eoeles/rm_ws/src/Learning_task/my_robot/picture/move.jpg)
+![move](picture/move.jpg)
 
 ## 总结
 
