@@ -13,9 +13,9 @@
 ### 1启动仿真和加载控制器
 ```shell
 roscore
-mon launch robot_car robot.launch 
+mon launch robot_car robot.launch
 ```
 ### 2驱动小车运动命令
 ```shell
-rostopic pub /controller/left_front_wheel_controller/command std_msgs/Float64 "data: 1.0" 
+rostopic pub /controller/left_front_wheel_controller/command std_msgs/Float64 "data: 1.0"
 ```
