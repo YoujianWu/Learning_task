@@ -52,4 +52,5 @@ CATKIN_IGNORE
 
 # Doxygen
 docs/
-.catkin_tools/
+cmake-build-debug/
+.idea/
