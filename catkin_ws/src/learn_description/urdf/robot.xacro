@@ -1,12 +1,11 @@
 <robot name="robot" xmlns:xacro="http://wiki.ros.org/xacro">
 
-    <link name="base_footprint">
-        <visual>
-            <geometry>
-                <sphere radius="0.001" />
-            </geometry>
-        </visual>
-    </link>
+
+    <xacro:property name="wheel_radius" value="0.08" />
+
+    <xacro:property name="chassis_length" value="0.6" />
+    <xacro:property name="chassis_width" value="0.2" />
+    <xacro:property name="chassis_height" value="0.1" />
 
     <link name="base_link">
         <visual>
@@ -47,12 +46,6 @@
     <gazebo reference="right_back_wheel">
         <material>Gazebo/Black</material>
     </gazebo>
-
-    <joint name="base_link2base_footprint" type="fixed">
-        <parent link="base_footprint" />
-        <child link="base_link"/>
-        <origin xyz="0 0 0.2" />
-    </joint>
 
     <link name="left_front_wheel">
         <visual>
