@@ -1,0 +1,12 @@
+<launch>
+
+    <rosparam file="$(find chassis_controller)/config/controllers.yaml" command="load"/>
+    <!-- load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" args="
+        controller/diff_drive_controller
+        controller/joint_state_controller
+  ">
+    </node>
+
+</launch>

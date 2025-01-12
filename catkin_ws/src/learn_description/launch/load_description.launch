@@ -1,0 +1,15 @@
+<launch>
+
+    <param name="robot_description" command="$(find xacro)/xacro $(find learn_description)/urdf/robot.xacro" />
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find learn_description)/config/rviz/config.rviz" />
+
+    <!-- 启动机器人状态和关节状态发布节点 -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+
+    <node pkg="gazebo_ros" type="spawn_model" name="model" args="-urdf -model robot -param robot_description -z 0.1"  />
+
+</launch>

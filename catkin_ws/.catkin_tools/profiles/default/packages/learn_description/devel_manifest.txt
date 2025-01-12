@@ -1,0 +1,5 @@
+learn_description
+/home/wiselook/RM/Learning_task/catkin_ws/devel/.private/learn_description/cmake.lock /home/wiselook/RM/Learning_task/catkin_ws/devel/./cmake.lock
+/home/wiselook/RM/Learning_task/catkin_ws/devel/.private/learn_description/share/learn_description/cmake/learn_descriptionConfig-version.cmake /home/wiselook/RM/Learning_task/catkin_ws/devel/share/learn_description/cmake/learn_descriptionConfig-version.cmake
+/home/wiselook/RM/Learning_task/catkin_ws/devel/.private/learn_description/share/learn_description/cmake/learn_descriptionConfig.cmake /home/wiselook/RM/Learning_task/catkin_ws/devel/share/learn_description/cmake/learn_descriptionConfig.cmake
+/home/wiselook/RM/Learning_task/catkin_ws/devel/.private/learn_description/lib/pkgconfig/learn_description.pc /home/wiselook/RM/Learning_task/catkin_ws/devel/lib/pkgconfig/learn_description.pc

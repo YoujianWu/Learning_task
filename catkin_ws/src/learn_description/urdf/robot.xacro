@@ -1,0 +1,184 @@
+<robot name="robot" xmlns:xacro="http://wiki.ros.org/xacro">
+
+
+    <xacro:property name="wheel_radius" value="0.08" />
+
+    <xacro:property name="chassis_length" value="0.6" />
+    <xacro:property name="chassis_width" value="0.2" />
+    <xacro:property name="chassis_height" value="0.1" />
+
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.6 0.2 0.1" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </visual>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="6" />
+            <inertia ixx="0.185" ixy="0" ixz="0" iyy="0.2" iyz="0" izz="0.025" />
+        </inertial>
+        <collision>
+            <geometry>
+                <box size="0.6 0.2 0.1" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+    </link>
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <gazebo reference="left_front_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="right_front_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="left_back_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="right_back_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <link name="left_front_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.08" length="0.06" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="-1.5705 0 0" />
+        </visual>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="2" />
+            <inertia ixx="3.8e-3" ixy="0" ixz="0" iyy="3.8e-3" iyz="0" izz="6.4e-3" />
+        </inertial>
+        <collision>
+            <geometry>
+                <cylinder radius="0.08" length="0.06" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="1.5705 0 0" />
+        </collision>
+    </link>
+
+    <joint name="left_front_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_front_wheel" />
+        <origin xyz="0.18 0.13 -0.05" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <link name="right_front_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.08" length="0.06" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="-1.5705 0 0" />
+        </visual>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="2" />
+            <inertia ixx="3.8e-3" ixy="0" ixz="0" iyy="3.8e-3" iyz="0" izz="6.4e-3" />
+        </inertial>
+        <collision>
+            <geometry>
+                <cylinder radius="0.1" length="0.06" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="1.5705 0 0" />
+        </collision>
+    </link>
+
+    <joint name="right_front_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="right_front_wheel" />
+        <origin xyz="0.18 -0.13 -0.05" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+
+    <link name="left_back_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.08" length="0.06" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="-1.5705 0 0" />
+        </visual>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="2" />
+            <inertia ixx="3.8e-3" ixy="0" ixz="0" iyy="3.8e-3" iyz="0" izz="6.4e-3" />
+        </inertial>
+        <collision>
+            <geometry>
+                <cylinder radius="0.1" length="0.06" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="1.5705 0 0" />
+        </collision>
+    </link>
+
+    <joint name="left_back_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_back_wheel" />
+        <origin xyz="-0.18 0.13 -0.05" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <link name="right_back_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.08" length="0.06" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="-1.5705 0 0" />
+        </visual>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="2" />
+            <inertia ixx="3.8e-3" ixy="0" ixz="0" iyy="3.8e-3" iyz="0" izz="6.4e-3" />
+        </inertial>
+        <collision>
+            <geometry>
+                <cylinder radius="0.1" length="0.06" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="1.5705 0 0" />
+        </collision>
+    </link>
+
+    <joint name="right_back_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="right_back_wheel" />
+        <origin xyz="-0.18 -0.13 -0.05" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <xacro:macro name="joint_trans" params="joint_name">
+        <!-- Transmission is important to link the joints and the controller -->
+        <transmission name="${joint_name}_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${joint_name}_joint">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${joint_name}_motor">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+    <xacro:joint_trans joint_name="left_front_wheel" />
+    <xacro:joint_trans joint_name="left_back_wheel" />
+    <xacro:joint_trans joint_name="right_front_wheel" />
+    <xacro:joint_trans joint_name="right_back_wheel" />
+
+    <gazebo>
+        <plugin name="ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+
+</robot>
