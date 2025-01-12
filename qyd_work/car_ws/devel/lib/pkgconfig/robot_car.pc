@@ -1,0 +1,1 @@
+/home/qyd/Learning_task/qyd_work/car_ws/devel/.private/robot_car/lib/pkgconfig/robot_car.pc
