@@ -8,7 +8,7 @@
 ### 1写yaml控制器参数文件
 ### 2在launch文件中上传参数和启动控制器
 ## 运行效果图
-![效果图](https://github.com/QiuYDvv/picture/blob/master/2025-01-12 13-44-23屏幕截图.png)
+![https://github.com/QiuYDvv/picture/blob/master/2025-01-12 13-44-23屏幕截图.png](https://github.com/QiuYDvv/picture/blob/master/2025-01-12%2013-44-23%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png?raw=true)
 ## 使用命令
 ### 1启动仿真和加载控制器
 ```shell
