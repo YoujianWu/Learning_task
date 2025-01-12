@@ -7,6 +7,8 @@ Panels:
         - /Global Options1
         - /RobotModel1
         - /RobotModel1/Status1
+        - /TF1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz/Selection
@@ -67,7 +69,22 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        left_back_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         left_front_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_back_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_front_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -78,6 +95,41 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        base_link:
+          Value: true
+        left_back_wheel:
+          Value: false
+        left_front_wheel:
+          Value: false
+        right_back_wheel:
+          Value: false
+        right_front_wheel:
+          Value: false
+      Marker Alpha: 1
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        base_link:
+          left_back_wheel:
+            {}
+          left_front_wheel:
+            {}
+          right_back_wheel:
+            {}
+          right_front_wheel:
+            {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -106,7 +158,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.7909255027770996
+      Distance: 7.909395217895508
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -114,17 +166,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: -0.5953570604324341
+        Y: 0.6580851674079895
+        Z: -0.2968897223472595
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.785398006439209
+      Pitch: 1.0903977155685425
       Target Frame: <Fixed Frame>
-      Yaw: 0.785398006439209
+      Yaw: 0.05039943754673004
     Saved: ~
 Window Geometry:
   Displays:
@@ -142,5 +194,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: 60
-  Y: 27
+  X: 1279
+  Y: 187
