@@ -1,1 +1,0 @@
-/home/qyd/Learning_task/qyd_work/car_ws/devel/.private/catkin_tools_prebuild/setup.sh

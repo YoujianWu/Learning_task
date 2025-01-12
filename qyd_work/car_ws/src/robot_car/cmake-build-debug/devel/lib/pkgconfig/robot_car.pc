@@ -1,8 +1,0 @@
-prefix=/home/qyd/Learning_task/qyd_work/car_ws/src/robot_car/cmake-build-debug/devel
-
-Name: robot_car
-Description: Description of robot_car
-Version: 0.0.0
-Cflags:
-Libs: -L${prefix}/lib
-Requires:
