@@ -1,0 +1,174 @@
+<robot name="car">
+    <gazebo>
+        <plugin name="ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+    </gazebo>
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+               <box size = "0.27 0.15 .03"/>
+            </geometry>
+            <material name="green">
+                <color rgba = "0 1 0 .5"/>
+            </material>
+        </visual>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="400" />
+            <inertia ixx="0.117" ixy="0" ixz="0" iyy="0.0369" iyz="0" izz="0.0477" />
+        </inertial>
+        <collision>
+                    <geometry>
+                        <box size="0.27 0.15 0.03" />
+                    </geometry>
+                    <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+    </link>
+    <link name = "left_back_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy = "1.5707 0 0"/>
+            <geometry>
+                <cylinder radius="0.1" length = "0.02"/>
+            </geometry>
+        </visual>
+       <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="3" />
+            <inertia ixx="0.015" ixy="0" ixz="0" iyy="0.0175" iyz="0" izz="0" />
+        </inertial>
+        <collision>
+                    <geometry>
+                        <cylinder radius="0.1" length = "0.02"/>
+                    </geometry>
+                    <origin xyz="0 0 0" rpy="1.5707 0 0" />
+        </collision>
+    </link>
+    <link name = "right_back_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy = "1.5707 0 0"/>
+            <geometry>
+                <cylinder radius="0.1" length = "0.02"/>
+            </geometry>
+        </visual>
+      <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="3" />
+            <inertia ixx="0.015" ixy="0" ixz="0" iyy="0.0175" iyz="0" izz="0" />
+        </inertial>
+        <collision>
+                    <geometry>
+                        <cylinder radius="0.1" length = "0.02"/>
+                    </geometry>
+                    <origin xyz="0 0 0" rpy="1.5707 0 0" />
+        </collision>
+    </link>
+    <link name = "left_front_wheel">
+          <visual>
+              <origin xyz="0 0 0" rpy = "1.5707 0 0"/>
+              <geometry>
+                  <cylinder radius="0.1" length = "0.02"/>
+              </geometry>
+          </visual>
+      <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="3" />
+            <inertia ixx="0.015" ixy="0" ixz="0" iyy="0.0175" iyz="0" izz="0" />
+        </inertial>
+        <collision>
+                    <geometry>
+                        <cylinder radius="0.1" length = "0.02"/>
+                    </geometry>
+                    <origin xyz="0 0 0" rpy="1.5707 0 0" />
+        </collision>
+    </link>
+    <link name = "right_front_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy = "1.5707 0 0"/>
+            <geometry>
+                <cylinder radius="0.1" length = "0.02"/>
+            </geometry>
+        </visual>
+      <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="3" />
+            <inertia ixx="0.015" ixy="0" ixz="0" iyy="0.0175" iyz="0" izz="0" />
+        </inertial>
+        <collision>
+                    <geometry>
+                        <cylinder radius="0.1" length = "0.02"/>
+                    </geometry>
+                    <origin xyz="0 0 0" rpy="1.5707 0 0" />
+        </collision>
+    </link>
+    <joint name="left_back_wheel_joint" type="continuous">
+        <origin xyz = "-0.135 0.075 -0.02" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="left_back_wheel"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <joint name="right_back_wheel_joint" type="continuous">
+        <origin xyz = "-0.135 -0.075 -0.02" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="right_back_wheel"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <joint name="right_front_wheel_joint" type="continuous">
+        <origin xyz = "0.135 -0.075 -0.02" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="right_front_wheel"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <joint name="left_front_wheel_joint" type="continuous">
+        <origin xyz = "0.135 0.075 -0.02" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="left_front_wheel"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <transmission name="left_front_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name ="left_front_wheel_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_front_wheel_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+    </transmission>
+
+    <transmission name="left_back_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name ="left_back_wheel_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_back_wheel_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+    </transmission>
+
+    <transmission name="right_front_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name ="right_front_wheel_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_front_wheel_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+    </transmission>
+
+    <transmission name="right_back_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name ="right_back_wheel_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_back_wheel_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+    </transmission>
+
+</robot>
