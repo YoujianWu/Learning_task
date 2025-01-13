@@ -1,13 +1,16 @@
 # Learning_task
-本仓库用来发布DynamicX控制组梯度的学习任务，具体任务安排在tasks文件夹里面，目的是为了帮助梯度队员快速上手并掌握相关知识。
+## 笔记
+- 见 [Notes](./doc/notes.md)
 
-- 禁止copy第三方库来交作业
-- 禁止对遇到的问题模棱两可（分清楚各种概念，不会的就要问，多想多问）
-- 不会的问题要学会谷歌找解决方法（有方法就试试，不要怕搞坏电脑环境，坏了再说）
-- 这个仓库包含了所有成员的学习成果，也可以当作大家的学习笔记仓库，自己搞不懂的概念可以看看别人的笔记，想要上传笔记直接开PR就好，直接联系仓库管理者审核。（也可以自己开一个仓库，自己写点笔记，推上github保存，以后忘了可以回来看。
+## 完成情况
 
+![rviz](./imgs/img1.png)
 
+![gazebo](./imgs/img2.png)
 
-[仓库笔记示例1](https://github.com/YoujianWu/learning_process/tree/master)
+控制器使用了ros官方的diff_drive_controller，见[差速控制器wiki](http://wiki.ros.org/diff_drive_controller)与[仓库](https://github.com/ros-controls/ros_controllers/tree/noetic-devel/diff_drive_controller)，[原理wiki](https://en.wikipedia.org/wiki/Differential_wheeled_robot#Kinematics_of_Differential_Drive_Robots)
 
-[仓库笔记示例2](https://github.com/chenhuiYu00/Learning-progess)
+根据wiki的yaml例子和自己的urdf小车参数写好yaml，并写好launch就可以用了，注意需要输入的/cmd_vel的命名空间（urdf需要导入gazebo_ros_control插件，[URDF_Design](./doc/URDF_Design.md))
+
+Todo：再练习写几个urdf，cpp版的键盘控制（可能do一半不do了）
+
