@@ -49,3 +49,5 @@ Check Yaml...............................................................Passed
 Check for added large files..............................................Passed
 
 ```
+
+todo：如何写.pre-commit-config.yaml
