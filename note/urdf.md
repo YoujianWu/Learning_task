@@ -47,3 +47,9 @@ link 元素描述了具有惯性、视觉特征和碰撞属性的刚体，每一
 ##### tips:
 
 两个必要元素name和type。其中type要正确选择：**转动关节**: continous 是没有限位的转动关节，可以绕单轴无限旋转 revolute是有限位的转动关节，有一定的旋转角度限制；**平动关节**: prismatic 是沿某一轴滑动的关节；**固定关节**: fixed 是不允许运动的关节
+
+
+
+
+
+![](/home/ljyi/learning/car.png)
