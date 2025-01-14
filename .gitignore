@@ -1,3 +1,5 @@
+.catkin_tools/
+.vscode/
 devel/
 logs/
 build/
