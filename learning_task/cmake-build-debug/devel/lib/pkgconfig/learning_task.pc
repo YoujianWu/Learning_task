@@ -1,8 +1,0 @@
-prefix=/home/what/桌面/Learning_task/learning_task/cmake-build-debug/devel
-
-Name: learning_task
-Description: Description of learning_task
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
