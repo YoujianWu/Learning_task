@@ -55,7 +55,8 @@ devel_isolated/
 *.cfgc
 /cfg/cpp/
 /cfg/*.py
-
+/cmake-build-debug
+/.gitignore
 # Ignore generated docs
 *.dox
 *.wikidoc
