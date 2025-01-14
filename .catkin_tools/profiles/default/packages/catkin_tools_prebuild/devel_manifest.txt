@@ -1,0 +1,13 @@
+/home/aphrora/Learning_task/build/catkin_tools_prebuild
+/home/aphrora/Learning_task/devel/.private/catkin_tools_prebuild/local_setup.sh /home/aphrora/Learning_task/devel/./local_setup.sh
+/home/aphrora/Learning_task/devel/.private/catkin_tools_prebuild/setup.sh /home/aphrora/Learning_task/devel/./setup.sh
+/home/aphrora/Learning_task/devel/.private/catkin_tools_prebuild/env.sh /home/aphrora/Learning_task/devel/./env.sh
+/home/aphrora/Learning_task/devel/.private/catkin_tools_prebuild/local_setup.zsh /home/aphrora/Learning_task/devel/./local_setup.zsh
+/home/aphrora/Learning_task/devel/.private/catkin_tools_prebuild/_setup_util.py /home/aphrora/Learning_task/devel/./_setup_util.py
+/home/aphrora/Learning_task/devel/.private/catkin_tools_prebuild/local_setup.bash /home/aphrora/Learning_task/devel/./local_setup.bash
+/home/aphrora/Learning_task/devel/.private/catkin_tools_prebuild/setup.zsh /home/aphrora/Learning_task/devel/./setup.zsh
+/home/aphrora/Learning_task/devel/.private/catkin_tools_prebuild/setup.bash /home/aphrora/Learning_task/devel/./setup.bash
+/home/aphrora/Learning_task/devel/.private/catkin_tools_prebuild/cmake.lock /home/aphrora/Learning_task/devel/./cmake.lock
+/home/aphrora/Learning_task/devel/.private/catkin_tools_prebuild/lib/pkgconfig/catkin_tools_prebuild.pc /home/aphrora/Learning_task/devel/lib/pkgconfig/catkin_tools_prebuild.pc
+/home/aphrora/Learning_task/devel/.private/catkin_tools_prebuild/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake /home/aphrora/Learning_task/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake
+/home/aphrora/Learning_task/devel/.private/catkin_tools_prebuild/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake /home/aphrora/Learning_task/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake

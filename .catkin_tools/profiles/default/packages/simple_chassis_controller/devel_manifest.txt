@@ -1,0 +1,6 @@
+simple_chassis_controller
+/home/aphrora/Learning_task/devel/.private/simple_chassis_controller/cmake.lock /home/aphrora/Learning_task/devel/./cmake.lock
+/home/aphrora/Learning_task/devel/.private/simple_chassis_controller/lib/libsimple_chassis_controller.so /home/aphrora/Learning_task/devel/lib/libsimple_chassis_controller.so
+/home/aphrora/Learning_task/devel/.private/simple_chassis_controller/lib/pkgconfig/simple_chassis_controller.pc /home/aphrora/Learning_task/devel/lib/pkgconfig/simple_chassis_controller.pc
+/home/aphrora/Learning_task/devel/.private/simple_chassis_controller/share/simple_chassis_controller/cmake/simple_chassis_controllerConfig.cmake /home/aphrora/Learning_task/devel/share/simple_chassis_controller/cmake/simple_chassis_controllerConfig.cmake
+/home/aphrora/Learning_task/devel/.private/simple_chassis_controller/share/simple_chassis_controller/cmake/simple_chassis_controllerConfig-version.cmake /home/aphrora/Learning_task/devel/share/simple_chassis_controller/cmake/simple_chassis_controllerConfig-version.cmake

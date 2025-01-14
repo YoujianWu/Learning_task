@@ -1,0 +1,1 @@
+/home/aphrora/Learning_task/devel/./cmake.lock 12

@@ -1,0 +1,5 @@
+simple_description
+/home/aphrora/Learning_task/devel/.private/simple_description/cmake.lock /home/aphrora/Learning_task/devel/./cmake.lock
+/home/aphrora/Learning_task/devel/.private/simple_description/lib/pkgconfig/simple_description.pc /home/aphrora/Learning_task/devel/lib/pkgconfig/simple_description.pc
+/home/aphrora/Learning_task/devel/.private/simple_description/share/simple_description/cmake/simple_descriptionConfig-version.cmake /home/aphrora/Learning_task/devel/share/simple_description/cmake/simple_descriptionConfig-version.cmake
+/home/aphrora/Learning_task/devel/.private/simple_description/share/simple_description/cmake/simple_descriptionConfig.cmake /home/aphrora/Learning_task/devel/share/simple_description/cmake/simple_descriptionConfig.cmake
