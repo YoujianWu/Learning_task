@@ -50,6 +50,4 @@ link 元素描述了具有惯性、视觉特征和碰撞属性的刚体，每一
 
 
 
-
-
-![](/home/ljyi/learning/car.png)
+![/home/ljyi/桌面/car.png](/home/ljyi/桌面/car.png)
