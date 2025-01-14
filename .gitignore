@@ -59,4 +59,7 @@ qtcreator-*
 # Catkin custom files
 CATKIN_IGNORE
 .gitignore
-cmake-build-debug/CMakeFiles
+/cmake-build-debug/CMakeFiles
+/cmake-build-debug
+clion-log.txt
+
