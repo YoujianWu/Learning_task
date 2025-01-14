@@ -1,0 +1,115 @@
+<robot name="mycar">
+
+    <link name="odom">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.8 0.4 0.2"/>
+            </geometry>
+            <material name="color_base">
+                <color rgba="1.0 0.713 0.757 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="odom2base_link" type="fixed">
+        <parent link="odom"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0.18"/>
+    </joint>
+
+
+
+    <link name="front_left_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.5705 0 0"/>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+            <material name="color_wheel">
+                <color rgba="0.780 0.082 0.522 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="front_left2base_link" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_left_wheel"/>
+        <origin xyz="0.2 0.225 -0.08"/>
+        <anis xyz="0 1 0"/>
+    </joint>
+
+
+
+    <link name="front_right_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.5705 0 0"/>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+            <material name="color_wheel">
+                <color rgba="0.780 0.082 0.522 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="front_right2base_link" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_right_wheel"/>
+        <origin xyz="0.2 -0.225 -0.08"/>
+        <anis xyz="0 1 0"/>
+    </joint>
+
+
+
+    <link name="back_left_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.5705 0 0"/>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+            <material name="color_wheel">
+                <color rgba="0.780 0.082 0.522 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="back_left2base_link" type="continuous">
+        <parent link="base_link"/>
+        <child link="back_left_wheel"/>
+        <origin xyz="-0.2 0.225 -0.08"/>
+        <anis xyz="0 1 0"/>
+    </joint>
+
+
+
+    <link name="back_right_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.5705 0 0"/>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+            <material name="color_wheel">
+                <color rgba="0.780 0.082 0.522 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="back_right2base_link" type="continuous">
+        <parent link="base_link"/>
+        <child link="back_right_wheel"/>
+        <origin xyz="-0.2 -0.225 -0.08"/>
+        <anis xyz="0 1 0"/>
+    </joint>
+
+
+</robot>

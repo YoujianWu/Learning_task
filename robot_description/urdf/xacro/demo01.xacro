@@ -1,0 +1,11 @@
+<robot name="mycar" xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <xacro:include filename="$(find robot_description)/urdf/xacro/common/base_link.xacro"/>
+    <xacro:include filename="$(find robot_description)/urdf/xacro/common/wheel.xacro"/>
+    <xacro:base_link />
+    <xacro:wheel wheel_name="front_left"  flag_x="1" flag_y="1" />
+    <xacro:wheel wheel_name="front_right" flag_x="1" flag_y="-1" />
+    <xacro:wheel wheel_name="back_left"   flag_x="-1" flag_y="1" />
+    <xacro:wheel wheel_name="back_right"  flag_x="-1" flag_y="-1" />
+
+</robot>

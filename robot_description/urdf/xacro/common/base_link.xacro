@@ -1,0 +1,41 @@
+<robot name="base_link" xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <xacro:property name="base_length" value="0.8"/>
+    <xacro:property name="base_wide" value="0.4"/>
+    <xacro:property name="base_high" value="0.2"/>
+    <xacro:property name="base_to_ground" value="0.08"/>
+
+    <xacro:macro name="base_link">
+
+        <material name="pink">
+            <color rgba="1.0 0.713 0.757 1.0"/>
+        </material>
+
+        <link name="base_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <box size="${base_length} ${base_wide} ${base_high}"/>
+                </geometry>
+                <material name="pink"/>
+            </visual>
+        </link>
+
+        <link name="odom">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <sphere radius="0.001"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <joint name="odom2base_link" type="fixed">
+            <parent link="odom"/>
+            <child link="base_link"/>
+            <origin xyz="0 0 ${base_to_ground + base_high / 2}"/>
+        </joint>
+
+    </xacro:macro>
+
+</robot>

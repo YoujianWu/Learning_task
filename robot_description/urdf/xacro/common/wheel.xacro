@@ -1,0 +1,36 @@
+<robot name="wheel" xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <xacro:property name="base_length" value="0.8"/>
+    <xacro:property name="base_wide" value="0.4"/>
+    <xacro:property name="base_high" value="0.2"/>
+    <xacro:property name="base_to_ground" value="0.08"/>
+
+    <xacro:property name="wheel_radius" value="0.1"/>
+    <xacro:property name="wheel_wide" value="0.05"/>
+
+    <xacro:macro name="wheel" params="wheel_name flag_x flag_y">
+        <xacro:property name="PI" value="3.14159"/>
+        <link name="${wheel_name}_wheel">
+            <visual>
+                <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_radius}"/>
+                </geometry>
+                <material name="color_wheel">
+                    <color rgba="0.780 0.082 0.522 1.0"/>
+                </material>
+            </visual>
+        </link>
+
+        <joint name="base_link2${wheel_name}wheel" type="continuous">
+            <parent link="base_link"/>
+            <child link="${wheel_name}_wheel"/>
+            <origin xyz="${flag_x * base_length / 4} ${flag_y * (wheel_wide + base_wide / 2)}
+            ${wheel_radius - base_to_ground - base_high / 2}"/>
+            <anis xyz="0 1 0"/>
+        </joint>
+
+    </xacro:macro>
+
+
+</robot>
