@@ -1,0 +1,192 @@
+<robot name="mbot">
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0.3 " rpy="0 0 0 "/>
+            <geometry>
+                <box size="0.5 1 0.5"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="1 0.4 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.3" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.5 1 0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="100"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+
+    </link>
+
+
+    <joint name="left_back_wheel_joint" type="continuous">
+        <origin xyz="0.35 0.35 0.15 " rpy="0 0 0 "/>
+        <parent link="base_link"/>
+        <child link="left_back_link"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+    <link name="left_back_link">
+        <visual>
+            <origin xyz=" 0 0 0 " rpy="1.570795 0 1.570795"/>
+            <geometry>
+                <cylinder length="0.2" radius="0.15"/>
+            </geometry>
+            <material name="yellow">
+                <color rgba="1 0.4 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.570795 0 1.570795"/>
+            <geometry>
+                <cylinder length="0.2" radius="0.15"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0 "/>
+            <mass value="100"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+
+    <joint name="left_front_wheel_joint" type="continuous">
+        <origin xyz="0.35 -0.35 0.15" rpy="0 0 0 "/>
+        <parent link="base_link"/>
+        <child link="left_front_link"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+    <link name="left_front_link" type="continuous">
+        <visual>
+            <origin xyz="0 0 0 " rpy="1.570795 0 1.570795"/>
+            <geometry>
+                <cylinder length="0.2" radius="0.15"/>
+            </geometry>
+            <material name="yellow">
+                <color rgba="1 0.4 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.570795 0 1.570795"/>
+            <geometry>
+                <cylinder length="0.2" radius="0.15"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0 "/>
+            <mass value="100"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+
+    <joint name="right_back_wheel_joint" type="continuous">
+        <origin xyz="-0.35 0.35 0.15 " rpy="0 0 0 "/>
+        <parent link="base_link"/>
+        <child link="right_back_link"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+    <link name="right_back_link">
+        <visual>
+            <origin xyz=" 0 0 0" rpy="1.570795 0 1.570795"/>
+            <geometry>
+                <cylinder length="0.2" radius="0.15"/>
+            </geometry>
+            <material name="yellow">
+                <color rgba="1 0.4 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.570795 0 1.570795"/>
+            <geometry>
+                <cylinder length="0.2" radius="0.15"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0 "/>
+            <mass value="100"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+
+    <joint name="right_front_wheel_joint" type="continuous">
+        <origin xyz="-0.35 -0.35 0.15" rpy="0 0 0 "/>
+        <parent link="base_link"/>
+        <child link="right_front_link"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+    <link name="right_front_link" type="continuous">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.570795 0 1.570795"/>
+            <geometry>
+                <cylinder length="0.2" radius="0.15"/>
+            </geometry>
+            <material name="yellow">
+                <color rgba="1 0.4 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0 " rpy="1.570795 0 1.570795"/>
+            <geometry>
+                <cylinder length="0.2" radius="0.15"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0 "/>
+            <mass value="100"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <transmission name="left_back_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="left_back_motor">
+            <mechanicalReducation>1</mechanicalReducation>
+        </actuator>
+        <joint name="left_back_wheel_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+
+    <transmission name="left_front_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="left_front_motor">
+            <mechanicalReducation>1</mechanicalReducation>
+        </actuator>
+        <joint name="left_front_wheel_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+
+    <transmission name="right_back_motor">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="right_back_motor">
+            <mechanicalReducation>1</mechanicalReducation>
+        </actuator>
+        <joint name="right_back_wheel_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+
+    <transmission name="right_front_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="right_front_joint">
+            <mechanicalReducation>1</mechanicalReducation>
+        </actuator>
+        <joint name="right_front_wheel_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>
+

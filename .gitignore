@@ -1,0 +1,18 @@
+*.log
+
+*.aux
+
+*.[oa]
+#忽略.o 和.a文件
+
+
+*.idea/
+
+*.node_modules/
+
+text.txt
+
+build/
+
+#如果需要忽略一整个文件夹或者一整个文件，直接写（如build/）
+

@@ -1,0 +1,24 @@
+left_back_wheel_controller:
+  type: "effort_controllers/JointEffortController"
+  joint: left_back_wheel_joint
+  pid: { p: 1.0 , i: 0.1 , d: 0.05 }
+
+left_front_wheel_controller:
+  type: "effort_controllers/JointEffortController"
+  joint: left_front_wheel_joint
+  pid: { p: 1.0 , i: 0.1 , d: 0.05 }
+
+right_back_wheel_controller:
+  type: "effort_controllers/JointEffortController"
+  joint: right_back_wheel_joint
+  pid: { p: 1.0 , i: 0.1 , d: 0.05 }
+
+
+right_front_wheel_controller:
+  type: "effort_controllers/JointEffortController"
+  joint: right_front_wheel_joint
+  pid: { p: 1.0 , i: 0.1 , d: 0.05 }
+
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
