@@ -43,8 +43,8 @@
   <depend>tf2_ros</depend>
   <depend>tf2_geometry_msgs</depend>
 
-  <depend>rm_description</depend>
-  <depend>rm_gazebo</depend>
+  <!-- <depend>rm_description</depend> -->
+  <!-- <depend>rm_gazebo</depend> -->
   <depend>dynamic_reconfigure</depend>
 
   <depend>actionlib</depend>
