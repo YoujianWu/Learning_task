@@ -1,0 +1,57 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="wheel">
+    <xacro:include filename="inertial.xacro" />
+    <xacro:property name="PI" value="3.1415927" />
+    <xacro:property name="wheel_radius" value="0.02" />
+    <xacro:property name="wheel_length" value="0.02" />
+    <xacro:property name="wheel_mass" value="0.05" />
+    <xacro:macro name="wheel_func"
+        params="prefix connected_to wheel_x_offset wheel_y_offset wheel_z_offset">
+        <!--  link  -->
+        <link name="${prefix}_wheel">
+            <visual>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="${PI /2} 0 0" />
+                <material name="red">
+                    <color rgba="0 0 0 0.5" />
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="${PI /2} 0 0" />
+            </collision>
+            <xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}"
+                h="${wheel_length}" />
+        </link>
+        <!--  joint  -->
+        <joint name="${prefix}_wheel_joint" type="continuous">
+            <axis xyz="0 1 0" />
+            <origin xyz="${wheel_x_offset} ${wheel_y_offset} ${wheel_offset_z}" rpy="0 0 0" />
+            <!--      limit not work while type="continuous"-->
+            <!-- <limit effort="${max_effort}" velocity="${max_velocity}" lower="-1e9" upper="1e9"/> -->
+            <!-- <dynamics damping="0.0" friction="0.05" /> -->
+            <parent link="${connected_to}" />
+            <child link="${prefix}_wheel" />
+        </joint>
+        <gazebo reference="${prefix}_wheel">
+            <material>
+                Gazebo/Red
+            </material>
+        </gazebo>
+    </xacro:macro>
+    <xacro:macro name="wheel_transmission" params="prefix mechanical_reduction">
+        <transmission name="${prefix}_wheel_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="${prefix}_wheel_motor">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <mechanicalReduction>${mechanical_reduction}</mechanicalReduction>
+            </actuator>
+            <joint name="${prefix}_wheel_joint">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+    </xacro:macro>
+</robot>
