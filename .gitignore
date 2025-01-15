@@ -1,0 +1,6 @@
+.idea
+.catkin_tools
+.cmake
+devel
+logs
+/cmake-build-debug/
