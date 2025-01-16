@@ -4,6 +4,7 @@
     <xacro:property name="base_wide" value="0.4"/>
     <xacro:property name="base_high" value="0.2"/>
     <xacro:property name="base_to_ground" value="0.08"/>
+    <xacro:property name="base_m" value="0.5"/>
 
     <xacro:macro name="base_link">
 
@@ -12,6 +13,14 @@
         </material>
 
         <link name="base_link">
+            <inertial>
+                <mass value="${base_m}"/>
+                <inertia ixx="${1/12 * base_m *(base_high * base_high + base_wide * base_wide)}"
+                         ixy="0" ixz="0"
+                         iyy="${1/12 * base_m *(base_length * base_length + base_wide * base_wide)}"
+                         iyz="0" izz="${1/12 * base_m *(base_high * base_high + base_wide * base_wide)}"
+                />
+            </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
@@ -19,7 +28,14 @@
                 </geometry>
                 <material name="pink"/>
             </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <box size="${base_length} ${base_wide} ${base_high}"/>
+                </geometry>
+            </collision>
         </link>
+
 
         <link name="odom">
             <visual>

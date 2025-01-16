@@ -2,10 +2,31 @@
 
     <xacro:include filename="$(find robot_description)/urdf/xacro/common/base_link.xacro"/>
     <xacro:include filename="$(find robot_description)/urdf/xacro/common/wheel.xacro"/>
-    <xacro:base_link />
-    <xacro:wheel wheel_name="front_left"  flag_x="1" flag_y="1" />
-    <xacro:wheel wheel_name="front_right" flag_x="1" flag_y="-1" />
+    <xacro:base_link/>
+    <xacro:wheel wheel_name="front_left"  flag_x="1"  flag_y="1" />
+    <xacro:wheel wheel_name="front_right" flag_x="1"  flag_y="-1" />
     <xacro:wheel wheel_name="back_left"   flag_x="-1" flag_y="1" />
     <xacro:wheel wheel_name="back_right"  flag_x="-1" flag_y="-1" />
+
+    <xacro:wheel_transmission wheel_name="front_left" />
+    <xacro:wheel_transmission wheel_name="front_right"/>
+    <xacro:wheel_transmission wheel_name="back_left"  />
+    <xacro:wheel_transmission wheel_name="back_right" />
+
+<!--    添加gazebo_ros_control插件-->
+    <gazebo>
+<!--        <plugin name="ros_control" filename="libgazebo_ros_control.so">-->
+<!--        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">-->
+<!--            <robotNamespace>/robot_description</robotNamespace>-->
+<!--            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>-->
+<!--        </plugin>-->
+
+        <plugin name="rm_ros_control" filename="librm_robot_hw_sim.so">
+            <robotNamespace>/</robotNamespace>
+            <robotSimType>rm_gazebo/RmRobotHWSim</robotSimType>
+        </plugin>
+
+    </gazebo>
+
 
 </robot>
