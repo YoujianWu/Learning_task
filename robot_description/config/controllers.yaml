@@ -1,0 +1,11 @@
+controller:
+  test_controller:
+    type: test_controller/TestController
+
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+#  robot_state_controller:
+#    type: robot_state_controller/RobotStateController
+#    publish_rate: 50

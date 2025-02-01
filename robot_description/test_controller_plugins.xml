@@ -1,0 +1,11 @@
+<!--使用controller manger加载和卸载控制器-->
+<!--<library path="lib/librobot_description">-->
+<library path="lib/librobot_description">
+    <class name="test_controller/TestController"
+           type="test_controller::TestController"
+           base_class_type="controller_interface::ControllerBase">
+        <description>
+        </description>
+    </class>
+
+</library>
