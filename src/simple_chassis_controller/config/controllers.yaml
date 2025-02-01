@@ -1,0 +1,49 @@
+# controller:
+#   robot_chassis_controller:
+#     type: robot_chassis_controller/RobotChassisController
+#   joint_state_controller:
+#     type: joint_state_controller/JointStateController
+#   robot_state_controller:
+#     type: robot_state_controller/RobotStateController
+#     publish_rate: 50
+
+controller:
+  # 关节状态控制器
+  simple_chassis_controller:
+    type: simple_chassis_controller/SimpleChassisController
+    publish_rate: 50
+    # joints:
+    #   - left_front_wheel_joint
+    #   - right_front_wheel_joint
+    #   - left_back_wheel_joint
+    #   - right_back_wheel_joint
+    # pid: { p: 100.0, i: 0.01, d: 10.0 }
+
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  robot_state_controller:
+    type: robot_state_controller/RobotStateController
+    publish_rate: 50
+
+  # # 四个轮子的effort控制器
+  # left_front_wheel_effort_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: left_front_wheel_joint
+  #   pid: { p: 100.0, i: 0.01, d: 10.0 }
+
+  # right_front_wheel_effort_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: right_front_wheel_joint
+  #   pid: { p: 100.0, i: 0.01, d: 10.0 }
+
+  # left_back_wheel_effort_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: left_back_wheel_joint
+  #   pid: { p: 100.0, i: 0.01, d: 10.0 }
+
+  # right_back_wheel_effort_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: right_back_wheel_joint
+  #   pid: { p: 100.0, i: 0.01, d: 10.0 }
